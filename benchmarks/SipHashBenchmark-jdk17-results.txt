@@ -1,0 +1,26 @@
+================================================================================================
+SipHash
+================================================================================================
+
+OpenJDK 64-Bit Server VM 17.0.12+10-LTS on Mac OS X 13.4
+Apple M1 Pro
+SipHash as Spark Expression:                Best Time(ms)   Avg Time(ms)   Stdev(ms)    Rate(M/s)   Per Row(ns)   Relative
+--------------------------------------------------------------------------------------------------------------------------
+SipHash as Spark Expression wholestage off           1095           1141          65          9,1         109,5       1,0X
+SipHash as Spark Expression wholestage on             806            841          36         12,4          80,6       1,4X
+
+OpenJDK 64-Bit Server VM 17.0.12+10-LTS on Mac OS X 13.4
+Apple M1 Pro
+SipHash as Java Udf:                      Best Time(ms)   Avg Time(ms)   Stdev(ms)    Rate(M/s)   Per Row(ns)   Relative
+------------------------------------------------------------------------------------------------------------------------
+SipHash as Java Udf wholestage off                 1233           1257          34          8,1         123,3       1,0X
+SipHash as Java Udf wholestage on                  1198           1267          89          8,4         119,8       1,0X
+
+OpenJDK 64-Bit Server VM 17.0.12+10-LTS on Mac OS X 13.4
+Apple M1 Pro
+Expression and Java UDF:                  Best Time(ms)   Avg Time(ms)   Stdev(ms)    Rate(M/s)   Per Row(ns)   Relative
+------------------------------------------------------------------------------------------------------------------------
+Java UDF                                           1180           1216          45          8,5         118,0       1,0X
+Expression                                          684            727          51         14,6          68,4       1,7X
+
+
