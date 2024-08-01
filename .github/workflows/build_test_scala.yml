@@ -1,0 +1,44 @@
+name: spark-siphash CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java-version: [ 8, 11 ]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Java ${{ matrix.java-version }}
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'adopt'
+        java-version: ${{ matrix.java-version }}
+
+    - name: Build using sbt for all Scala versions supported
+      run: sbt +package
+
+    - name: Run tests for all Scala versions supported
+      run: sbt +test
+
+    - name: Upload spark-siphash package for Scala 2.12 (Java 8)
+      if: matrix.java == '8'
+      uses: actions/upload-artifact@v4
+      with:
+        name: spark-siphash package scala 2.12
+        path: target/scala-2.13/*.jar
+
+    - name: Upload spark-siphash package for Scala 2.13 (Java 11)
+      if: matrix.java == '11'
+      uses: actions/upload-artifact@v4
+      with:
+        name: spark-siphash package scala 2.13
+        path: target/scala-2.13/*.jar
