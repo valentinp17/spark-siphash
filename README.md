@@ -56,6 +56,5 @@ To run benchmark:
 
 
 ### Unfinished and cons
-- Supports only String and Binary and can hash only 1 Column 
-(extend from HashExpression\[E] will solve both problems)
+- Supports only String and Binary and can hash only 1 Column
 - Python wrapper ([copy function from here](python/siphash.py))
