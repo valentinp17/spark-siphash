@@ -1,5 +1,5 @@
 # Spark SipHash
-[![Test](https://github.com/valentinp17/spark-siphash/blob/release-workflow/.github/workflows/build_test_scala.yml/badge.svg)](https://github.com/valentinp17/spark-siphash/blob/release-workflow/.github/workflows/build_test_scala.yml)
+[![Test](https://github.com/valentinp17/spark-siphash/actions/workflows/build_test_scala.yml/badge.svg)](https://github.com/valentinp17/spark-siphash/actions/workflows/build_test_scala.yml)
 ---
 Spark-SipHash is a wrapper around Java Function written by whitfin for better performance.
 
