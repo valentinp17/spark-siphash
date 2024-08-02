@@ -56,5 +56,6 @@ To run benchmark:
 
 
 ### Unfinished and cons
-- Supports only String and Binary and can hash only 1 Column
+- Supports only BinaryType and StringType  
+- Can hash only 1 Column
 - Python wrapper ([copy function from here](python/siphash.py))
