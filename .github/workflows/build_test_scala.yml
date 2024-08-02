@@ -23,6 +23,9 @@ jobs:
         distribution: 'adopt'
         java-version: ${{ matrix.java-version }}
 
+    - name: Get project version
+      run: echo "PROJECT_VERSION=$(sbt -Dsbt.log.noformat=true 'print version' | tail -n 1)" >> $GITHUB_ENV
+
     - name: Build using sbt for all Scala versions supported
       run: sbt +package
 
@@ -33,12 +36,12 @@ jobs:
       if: matrix.java-version == '8'
       uses: actions/upload-artifact@v4
       with:
-        name: spark-siphash_2.12.jar
+        name: spark-siphash_2.12-${{ env.PROJECT_VERSION }}.jar
         path: target/scala-2.13/*.jar
 
     - name: Upload spark-siphash package for Scala 2.13 (Java 11)
       if: matrix.java-version == '11'
       uses: actions/upload-artifact@v4
       with:
-        name: spark-siphash_2.13.jar
+        name: spark-siphash_2.13-${{ env.PROJECT_VERSION }}.jar
         path: target/scala-2.13/*.jar
