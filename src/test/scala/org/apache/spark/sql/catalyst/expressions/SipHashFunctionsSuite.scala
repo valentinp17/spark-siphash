@@ -65,4 +65,12 @@ class SipHashFunctionsSuite extends QueryTest {
     checkAnswer(spark.sql("SELECT siphash('0101010101010101', 'Spark')"),
       Row(-2905799387013516250L))
   }
+
+  test("test expression docs") {
+    spark.sql("DESCRIBE FUNCTION siphash;").show(100, false)
+
+    spark.sql("DESCRIBE FUNCTION EXTENDED siphash;").show(100, false)
+
+    spark.sql("DESCRIBE FUNCTION EXTENDED md5;").show(100, false)
+  }
 }
